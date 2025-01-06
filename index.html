@@ -3,42 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator - Weight & Height</title>
+    <title>User Details - BMI Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function calculateBMI() {
-            // Get values from input fields
-            var weight = parseFloat(document.getElementById("weight").value);
-            var height = parseFloat(document.getElementById("height").value) / 100; // Convert height to meters
-
-            // Check if values are valid
-            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-                alert("Please enter valid weight and height values.");
-                return;
-            }
-
-            // Calculate BMI
-            var bmi = weight / (height * height);
-            // Display BMI result
-            document.getElementById("result").textContent = "Your BMI is: " + bmi.toFixed(2);
-        }
-    </script>
 </head>
-
 <body>
     <div class="container">
-        <h1>Enter Your Weight and Height</h1>
-        <div class="input-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" required>
-        </div>
-        <div class="input-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" required>
-        </div>
-        <button type="button" onclick="calculateBMI()">Calculate BMI</button>
-
-        <p id="result"></p>
+        <h1>Enter Your Details</h1>
+        <form action="bmi-form.php" method="GET">
+            <div class="input-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <button type="submit">Next</button>
+        </form>
     </div>
 </body>
 </html>
